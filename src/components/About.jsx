@@ -1,7 +1,6 @@
 import React from "react";
 import Tilt from "react-tilt";
 import { motion } from "framer-motion";
-
 import { styles } from "../styles";
 import { services } from "../constants";
 import { SectionWrapper } from "../hoc";
@@ -37,29 +36,44 @@ const ServiceCard = ({ index, title, icon }) => (
 
 const About = () => {
   return (
-    <>
-      <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubText}>Introduction</p>
-        <h2 className={styles.sectionHeadText}>Overview.</h2>
+    <div className="flex flex-col lg:flex-row items-center lg:items-start justify-center lg:justify-between gap-10">
+      <motion.div
+        variants={textVariant()}
+        className="max-w-3xl flex-shrink-0 text-center lg:text-left"
+      >
+        <h2 className={styles.sectionHeadText}>Kim bu Enes?</h2>
+        <motion.p
+          variants={fadeIn("", "", 0.1, 1)}
+          className="mt-4 text-secondary text-[17px] leading-[30px]"
+        >
+          Merhaba, ben Enes Bayar. 2024 yılında Selçuk Üniversitesi Bilgisayar
+          Mühendisliği bölümünden mezun oldum. Kariyerime mobil uygulama
+          geliştirme alanında başladım ve bu süreçte çeşitli projelerde aktif
+          olarak yer aldım.
+          <br />
+          <br />
+          Sonrasında oyun sektöründe çalışmalara başladım ve bu alanda kapsamlı
+          deneyimler edindim. İki farklı şirkette staj yaparak oyun geliştirme
+          süreçlerinin tüm aşamalarında ve reklam entegrasyonlarında görev
+          aldım. Ancak zamanla web teknolojilerine olan ilgim arttı ve
+          kariyerimi Front-End geliştirme üzerine şekillendirmeye karar verdim.
+          <br />
+          <br />
+          Web teknolojilerine olan ilgimle birlikte e-ticaret siteleri gibi
+          dinamik ve kullanıcı dostu web projeleri geliştirmeye başladım.
+          React, Next.js ve Tailwind CSS gibi modern teknolojileri kullanarak
+          görsel açıdan etkileyici ve işlevsel uygulamalar oluşturdum. Bu yolda
+          kendimi sürekli geliştirmeye devam ediyor ve yenilikçi çözümler
+          sunmaya odaklanıyorum.
+        </motion.p>
       </motion.div>
 
-      <motion.p
-        variants={fadeIn("", "", 0.1, 1)}
-        className='mt-4 text-secondary text-[17px] max-w-3xl leading-[30px]'
-      >
-        I'm a skilled software developer with experience in TypeScript and
-        JavaScript, and expertise in frameworks like React, Node.js, and
-        Three.js. I'm a quick learner and collaborate closely with clients to
-        create efficient, scalable, and user-friendly solutions that solve
-        real-world problems. Let's work together to bring your ideas to life!
-      </motion.p>
-
-      <div className='mt-20 flex flex-wrap gap-10'>
+      <div className="mt-10 lg:mt-36 flex flex-wrap gap-10 justify-center">
         {services.map((service, index) => (
           <ServiceCard key={service.title} index={index} {...service} />
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
